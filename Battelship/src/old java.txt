@@ -1,0 +1,200 @@
+		
+		stats.readStats();
+		String currPlayer;
+/*		if (stats.storedNames.size() > 0){
+			currPlayer = stats.storedNames.get(0);
+			
+			//First Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+					
+				}
+			}
+			
+			lblFirstPlace.setText(currPlayer);
+			wins1.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses1.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+		}else{
+			//no players exist
+		}
+
+		
+		if (stats.storedNames.size() > 1){
+			currPlayer = stats.storedNames.get(0);
+			//Second Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+				}
+			}
+			lblSecondPlace.setText(currPlayer);
+			wins2.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses2.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+		}else{
+			//only one player has stats stored
+		}
+		
+		if (stats.storedNames.size() > 2){
+			currPlayer = stats.storedNames.get(0);
+			
+			//Third Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+				}
+			}
+			lblThirdPlace.setText(currPlayer);
+			wins3.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses3.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+		}else{
+			//only one player has stats stored
+		}*/
+		
+		//no player - don't read anything
+		if (stats.storedNames.size() == 0){
+			//Don't read anything - set all labels to no players
+			lblFirstPlace.setText("No Player");
+			lblFirstPlace.setText("No Player");
+			lblFirstPlace.setText("No Player");
+		}else if (stats.storedNames.size() == 1){
+			//one player - read once, set other 2 as no player
+			currPlayer = stats.storedNames.get(0);
+
+			//First Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+
+				}
+			}
+
+			lblFirstPlace.setText(currPlayer);
+			lblSecondPlace.setText("No Player");
+			lblThirdPlace.setText("No Player");
+			wins1.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses1.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+			try {
+				stats.updateStatsFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}else if (stats.storedNames.size() == 2){
+			//2 players - read twice - set player 3 as no player
+			currPlayer = stats.storedNames.get(0);
+
+			//First Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+
+				}
+			}
+
+			lblFirstPlace.setText(currPlayer);
+			wins1.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses1.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+			try {
+				stats.updateStatsFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			currPlayer = stats.storedNames.get(0);
+			//Second Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+				}
+			}
+			lblSecondPlace.setText(currPlayer);
+			wins2.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses2.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+
+			lblThirdPlace.setText("No Player");
+
+		}else if (stats.storedNames.size() >= 3){
+			currPlayer = stats.storedNames.get(0);
+
+			//First Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+
+				}
+			}
+
+			lblFirstPlace.setText(currPlayer);
+			wins1.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses1.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+			
+			try {
+				stats.updateStatsFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			currPlayer = stats.storedNames.get(0);
+			//Second Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+				}
+			}
+			lblSecondPlace.setText(currPlayer);
+			wins2.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses2.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+
+			try {
+				stats.updateStatsFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			currPlayer = stats.storedNames.get(0);
+
+			//Third Place
+			for (int i = 1; i < stats.storedWins.size(); i++){
+				if (stats.storedWins.get(stats.getPlayerIndex(currPlayer)) < stats.storedWins.get(i)){
+
+					currPlayer = (stats.storedNames.get(i));
+				}
+			}
+			lblThirdPlace.setText(currPlayer);
+			wins3.setText(stats.storedWins.get(stats.getPlayerIndex(currPlayer)).toString());
+			losses3.setText(stats.storedLosses.get(stats.getPlayerIndex(currPlayer)).toString());
+			stats.removePlayer(currPlayer);
+			
+			try {
+				stats.updateStatsFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	
+		stats.storedNames.clear();
+		stats.storedWins.clear();
+		stats.storedLosses.clear();
